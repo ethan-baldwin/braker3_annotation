@@ -1,0 +1,16 @@
+samples: config/samples.tsv
+genomes: config/genomes.tsv
+
+
+# directory: /scratch/eab77806/genome_assembly/final/
+raw_reads_directory: /scratch/eab77806/raw_reads/rna
+
+# executor: slurm
+# jobs: 500
+# use-envmodules: True
+# default-resources:
+#   slurm_account: "jlmlab"
+#   slurm_partition: "batch"
+#   runtime: 100
+#   mem_mb: 6000
+#   cpus_per_task: 1
