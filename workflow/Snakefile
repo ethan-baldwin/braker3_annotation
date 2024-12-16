@@ -4,15 +4,11 @@ configfile: "config/config.yaml"
 
 include: "rules/common.smk"
 include: "rules/trim.smk"
-# include: "rules/qc.smk"
-# include: "rules/align.smk"
-# include: "rules/diffexp.smk"
-
+include: "rules/braker.smk"
 
 workdir: config['outdir']
 
 rule all:
     input:
-        expand("trimmed/{sample}_P_R1.fastq.gz", sample=SAMPLES)
-        # f"busco/{genome}.genome.out",
-        # f"busco/{genome}.transcriptome.out"
+        expand("{genome}/braker/braker.gff3", genome=GENOMES["genome_id"])
+        # expand("trimmed/{sample}_P_R1.fastq.gz", sample=SAMPLES["sample_name"])
