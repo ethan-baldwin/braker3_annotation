@@ -2,7 +2,7 @@ samples: config/samples.tsv
 genomes: config/genomes.tsv
 
 
-# directory: /scratch/eab77806/genome_assembly/final/
+outdir: /scratch/eab77806/genome_assembly/final/
 raw_reads_directory: /scratch/eab77806/raw_reads/rna
 
 # executor: slurm

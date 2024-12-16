@@ -9,6 +9,8 @@ include: "rules/align.smk"
 include: "rules/diffexp.smk"
 
 
+workdir: config['outdir']
+
 rule all:
     input:
         "trimmed/{sample}_P_R1.fastq.gz"
