@@ -4,9 +4,9 @@ configfile: "config/config.yaml"
 
 include: "rules/common.smk"
 include: "rules/trim.smk"
-include: "rules/qc.smk"
-include: "rules/align.smk"
-include: "rules/diffexp.smk"
+# include: "rules/qc.smk"
+# include: "rules/align.smk"
+# include: "rules/diffexp.smk"
 
 
 workdir: config['outdir']
