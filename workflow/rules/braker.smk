@@ -4,9 +4,7 @@ genome_to_fasta = GENOMES.set_index("genome_id")["masked_genome_path"].to_dict()
 rule Braker:
     input:
         fasta=lambda wildcards: genome_to_fasta[wildcards.genome],
-        rna=lambda wildcards: genome_to_samples[wildcards.genome],
-        trimmed1=f"{TRIMDIR}/{{sample}}_P_R1.fastq.gz",
-        trimmed2=f"{TRIMDIR}/{{sample}}_P_R2.fastq.gz"
+        rna=lambda wildcards: genome_to_samples[wildcards.genome]
     output:
         "{genome}/braker/braker.gff3"
     envmodules:
