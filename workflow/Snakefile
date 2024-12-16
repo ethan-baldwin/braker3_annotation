@@ -8,6 +8,9 @@ include: "rules/braker.smk"
 
 workdir: config['outdir']
 
+SAMPLES = pd.read_table(config["samples"],header=0,delim_whitespace=True).set_index("sample_name", drop=False)
+GENOMES = pd.read_table(config["genomes"],header=0,delim_whitespace=True).set_index("genome_id", drop=False)
+
 rule all:
     input:
         expand("{genome}/braker/braker.gff3", genome=GENOMES["genome_id"]),
