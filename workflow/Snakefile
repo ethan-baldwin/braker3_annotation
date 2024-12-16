@@ -13,6 +13,6 @@ workdir: config['outdir']
 
 rule all:
     input:
-        "trimmed/{sample}_P_R1.fastq.gz"
+        expand("trimmed/{sample}_P_R1.fastq.gz", sample=SAMPLES)
         # f"busco/{genome}.genome.out",
         # f"busco/{genome}.transcriptome.out"
