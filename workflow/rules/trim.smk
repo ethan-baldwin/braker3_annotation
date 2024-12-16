@@ -1,7 +1,7 @@
 rule fastp:
     input:
-        r1=f"config['raw_reads_directory']/{sample}_R1_001.fastq.gz",
-        r2=f"config['raw_reads_directory']/{sample}_R2_001.fastq.gz"
+        r1=config['raw_reads_directory']"/{sample}_R1_001.fastq.gz",
+        r2=config['raw_reads_directory']"/{sample}_R2_001.fastq.gz"
     output:
         trimmed1="trimmed/{sample}_P_R1.fastq.gz",
         trimmed2="trimmed/{sample}_P_R2.fastq.gz",
