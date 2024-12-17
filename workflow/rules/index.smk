@@ -11,7 +11,7 @@ rule index:
     output:
         index=get_index_outputs
     params:
-        index=lambda wildcards: f"{get_genome_fasta(wildcards)}.index"
+        index="index"
     envmodules:
         "HISAT2/2.2.1-gompi-2022a"
     resources:
