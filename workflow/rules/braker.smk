@@ -3,7 +3,7 @@ genome_to_samples = SAMPLES.groupby("genome")["sample_name"].apply(list).to_dict
 
 rule Braker:
     input:
-        fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}",
+        fasta=lambda wildcards: f"{genome_to_masked_path[wildcards.genome]}",
         bam="mapped_reads/{genome}.merged.bam"
     output:
         "{genome}/braker_smk/braker.gff3"

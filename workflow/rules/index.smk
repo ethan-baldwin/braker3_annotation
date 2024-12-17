@@ -4,11 +4,11 @@
 
 rule index:
     input:
-        fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}/{wildcards.genome}.fa",
+        fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}",
     output:
-        done=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}/{wildcards.genome}.index.1.ht2"
+        done=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}.index.1.ht2"
     params:
-        index=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}/{wildcards.genome}.index"
+        index=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}.index"
     envmodules:
         "HISAT2/2.2.1-gompi-2022a"
     resources:

@@ -1,3 +1,3 @@
-genome_id	masked_genome_path
-S_psittacina	/scratch/eab77806/genome_assembly/final/psitt/fasta/S_psittacina.fa.masked
-S_rosea_4	/scratch/eab77806/genome_assembly/final/rosea/fasta/S_rosea_4.fa.masked
+genome_id	masked_genome_path	fasta_path
+S_psittacina	/scratch/eab77806/genome_assembly/final/psitt/fasta/S_psittacina.fa.masked	/scratch/eab77806/genome_assembly/final/psitt/fasta/S_psittacina.fa
+S_rosea_4	/scratch/eab77806/genome_assembly/final/rosea/fasta/S_rosea_4.fa.masked	/scratch/eab77806/genome_assembly/final/rosea/fasta/S_rosea_4.fa
