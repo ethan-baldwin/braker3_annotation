@@ -5,6 +5,8 @@ configfile: "config/config.yaml"
 include: "rules/common.smk"
 include: "rules/trim.smk"
 include: "rules/braker.smk"
+include: "rules/index.smk"
+include: "rules/hisat_map.smk"
 
 SAMPLES = pd.read_table(config["samples"],header=0,delim_whitespace=True).set_index("sample_name", drop=False)
 GENOMES = pd.read_table(config["genomes"],header=0,delim_whitespace=True).set_index("genome_id", drop=False)
