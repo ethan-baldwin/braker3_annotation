@@ -1,14 +1,17 @@
-# import shutil
-#
-# shutil.copyfile(src, dst)
+def get_genome_fasta(wildcards):
+    return GENOMES.loc[wildcards.genome, "masked_genome_path"]
+
+def get_index_outputs(wildcards):
+    base = GENOMES.loc[wildcards.genome, "masked_genome_path"]
+    return [f"{base}.index.{i}.ht2" for i in range(1, 9)]
 
 rule index:
     input:
         fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}",
     output:
-        done=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}.index.1.ht2"
+        index=get_index_outputs
     params:
-        index=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}.index"
+        index=lambda wildcards: f"{get_genome_fasta(wildcards)}.index"
     envmodules:
         "HISAT2/2.2.1-gompi-2022a"
     resources:
