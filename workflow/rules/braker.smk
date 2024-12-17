@@ -3,16 +3,16 @@ genome_to_samples = SAMPLES.groupby("genome")["sample_name"].apply(list).to_dict
 
 rule Braker:
     input:
-        fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}"
+        fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}",
+        bam="mapped_reads/{genome}.merged.bam"
     output:
-        "{genome}/braker/braker.gff3"
+        "{genome}/braker_smk/braker.gff3"
     envmodules:
         "BRAKER/3.0.3-foss-2022a"
     params:
         species="{genome}",
         prot=config['prot'],
-        tsebra_path=config['tsebra_path'],
-        rna=lambda wildcards: genome_to_samples[wildcards.genome]
+        tsebra_path=config['tsebra_path']
     resources:
         mem_mb=100000,
         cpus_per_task=32,
@@ -21,8 +21,7 @@ rule Braker:
         """
         braker.pl --genome={input.fasta} \
          --AUGUSTUS_CONFIG_PATH=/scratch/eab77806/genome_assembly/braker/augustus/config \
-         --rnaseq_sets_ids={params.rna} \
-         --rnaseq_sets_dirs={READSDIR} \
+         --bam={input.bam} \
          --softmasking \
          --gff3 \
          --workingdir=braker \
