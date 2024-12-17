@@ -9,7 +9,7 @@ rule index:
     input:
         fasta=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}",
     output:
-        index=get_index_outputs
+        done=lambda wildcards: f"{genome_to_fasta_path[wildcards.genome]}.index.1.ht2"
     envmodules:
         "HISAT2/2.2.1-gompi-2022a"
     resources:
