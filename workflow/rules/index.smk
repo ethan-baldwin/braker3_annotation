@@ -2,7 +2,7 @@ def get_genome_fasta(wildcards):
     return GENOMES.loc[wildcards.genome, "masked_genome_path"]
 
 def get_index_outputs(wildcards):
-    base = GENOMES.loc[wildcards.genome, "genome_path"]
+    base = GENOMES.loc[wildcards.genome, "fasta_path"]
     return [f"{base}.index.{i}.ht2" for i in range(1, 9)]
 
 rule index:
