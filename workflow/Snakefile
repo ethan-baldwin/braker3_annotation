@@ -13,5 +13,5 @@ workdir: config['outdir']
 
 rule all:
     input:
-        expand("{genome}/braker/braker.gff3", genome=GENOMES["genome_id"]),
+        expand("{genome}/braker_smk/braker.gff3", genome=GENOMES["genome_id"]),
         expand("trimmed/{sample}_P_R1.fastq.gz", sample=SAMPLES["sample_name"])
