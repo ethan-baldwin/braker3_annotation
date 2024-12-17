@@ -12,7 +12,8 @@ rule Braker:
     params:
         species="{genome}",
         prot=config['prot'],
-        tsebra_path=config['tsebra_path']
+        tsebra_path=config['tsebra_path'],
+        rna=lambda wildcards: genome_to_samples[wildcards.genome]
     resources:
         mem_mb=100000,
         cpus_per_task=32,
@@ -21,7 +22,7 @@ rule Braker:
         """
         braker.pl --genome={input.fasta} \
          --AUGUSTUS_CONFIG_PATH=/scratch/eab77806/genome_assembly/braker/augustus/config \
-         --rnaseq_sets_ids={input.rna} \
+         --rnaseq_sets_ids={params.rna} \
          --rnaseq_sets_dirs={READSDIR} \
          --softmasking \
          --gff3 \
